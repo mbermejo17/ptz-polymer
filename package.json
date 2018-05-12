@@ -1,0 +1,19 @@
+{
+  "name": "ptz-polymer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mbermejo17:Mbermejo2207@github.com/mbermejo17/ptz-polymer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbermejo17/ptz-polymer/issues"
+  },
+  "homepage": "https://github.com/mbermejo17/ptz-polymer#readme"
+}
