@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
@@ -11,10 +12,26 @@
     <link rel="manifest" href="/manifest.json">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-
+    <link rel="import" href="/bower_components/app-layout/app-layout.html">
     <link rel="import" href="/src/ptz-polymer-app/ptz-polymer-app.html">
-  </head>
-  <body>
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="/bower_components/paper-progress/paper-progress.html">
+</head>
+
+<body>
+    <app-header reveals>
+        <app-toolbar>
+            <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+            <div main-title>My app</div>
+            <paper-icon-button icon="delete"></paper-icon-button>
+            <paper-icon-button icon="search"></paper-icon-button>
+            <paper-icon-button icon="close"></paper-icon-button>
+            <paper-progress value="10" indeterminate bottom-item></paper-progress>
+        </app-toolbar>
+    </app-header>
+    <app-drawer id="drawer" swipe-open></app-drawer>
+    <sample-content size="10"></sample-content>
     <ptz-polymer-app></ptz-polymer-app>
-  </body>
+</body>
+
 </html>

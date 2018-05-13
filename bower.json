@@ -4,7 +4,9 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-elements": "PolymerElements/iron-elements#^1.0.10",
-    "paper-elements": "PolymerElements/paper-elements#^1.0.7"
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "app-layout": "PolymerElements/app-layout#^2.1.1",
+    "iron-icons": "PolymerElements/iron-icons#^2.1.1"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
