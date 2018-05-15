@@ -1,15 +1,13 @@
 {
-  "name": "ptz-polymer",
-  "main": "index.html",
-  "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0",
-    "iron-elements": "PolymerElements/iron-elements#^1.0.10",
-    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
-    "app-layout": "PolymerElements/app-layout#^2.1.1",
-    "iron-icons": "PolymerElements/iron-icons#^2.1.1"
-  },
-  "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
-  }
+    "name": "ptz-polymer",
+    "main": "index.html",
+    "dependencies": {
+        "polymer": "Polymer/polymer#^1.2.0",
+        "iron-elements": "polymerelements/iron-elements#^1.0.8",
+        "paper-elements": "PolymerElements/paper-elements#^1.0.1"
+    },
+    "devDependencies": {
+        "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+    }
 }

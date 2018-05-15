@@ -1,0 +1,111 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+
+
+<dom-module id="app-login">
+    <template>
+        <style is="custom-style">
+            #formLogin {
+              width: 380px;
+              margin: 4em auto;
+              padding: 3em 2em 2em 2em;
+              background: #fafafa;
+              border: 1px solid #ebebeb;
+              box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+            }
+              label {
+              color: #999;
+              font-size: 20px;
+              font-weight: normal;
+              position: absolute;
+              pointer-events: none;
+              left: 5px;
+              top: 10px;
+              transition: all 0.2s ease;
+              }
+            paper-button.custom:hover {
+                background-color: var(--paper-indigo-100);
+            }
+            h1{
+              margin: 0 auto;
+              text-align: center;
+            }
+            paper-button.indigo {
+                background-color: var(--paper-indigo-500);
+                color: white;
+                --paper-button-raised-keyboard-focus: {
+                    background-color: var(--paper-pink-a200) !important;
+                    color: white !important;
+                }
+                ;
+            }
+        </style>
+        
+        <form is="iron-form" method="post" action="/submit.php" id="formLogin">
+          <h1>User Logon</h1>
+
+            <paper-input error-message="{{error_username}}" name="username" value="{{username}}" label="Username" maxlength="25" required></paper-input>
+            <paper-input error-message="{{error_password}}" name="password" value="{{password}}" label="Password" maxlength="25" type="password" required></paper-input>
+            <br>
+            <br>
+            <paper-button raised class="custom indigo" onclick="document.getElementById('formLogin').submit()">
+                <iron-icon icon="icons:send"></iron-icon>
+                Submit
+            </paper-button>
+
+            <div class="output"></div>
+            <br>
+            <div class="outputServer"></div>
+            <br>
+        </form>
+    </template>
+    <script>
+        Polymer({
+            is: 'app-login',
+            properties: {
+                username: {
+                    type: String,
+                    value: ""
+                },
+                password: {
+                    type: String,
+                    value: ""
+                },
+                error_username: {
+                    type: String,
+                    value: "Username Is Invalid!"
+                },
+                error_password: {
+                    type: String,
+                    value: "Password Is Invalid!"
+                }
+            },
+            listeners: {
+                'iron-form-response': 'formResponse',
+                'iron-form-submit': 'formSubmit',
+                'iron-form-error': 'formError'
+            },
+            formSubmit: function(event) {
+                this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+            },
+            formResponse: function(event, response) {
+                console.log(event.detail);
+                if (200 === response.xhr.status) {
+                    var data = response.xhr;
+                    console.log(data.response.res);
+                    this.querySelector('.outputServer').innerHTML = data.response.res;
+                }
+            },
+            formError: function(event) {
+                this.querySelector('.outputServer').innerHTML = event.detail.error;
+            }
+        });
+    </script>
+</dom-module>
